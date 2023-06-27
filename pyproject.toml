@@ -1,0 +1,75 @@
+[project]
+authors = [
+    { name = "Luca Grementieri", email = "luca.grementieri@ens-paris-saclay.fr" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Multimedia :: Graphics :: 3D Modeling",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "numpy>=1.20"
+]
+description = "Finite element analysis in structworks module"
+name = "pycurvature"
+readme = "README.md"
+requires-python = ">=3.7"
+version = "0.1"
+    [project.optional-dependencies]
+    test = ["pymeshlab>=2022.2.post4", "pytest-cases>=3.6", "pytest>=7.4"]
+
+[tool.setuptools.package-data]
+"pycurvature" = ["py.typed"]
+
+
+[tool.black]
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.tox
+  | \.vscode
+  | venv
+  | build
+  | dist
+)/
+'''
+
+[tool.ruff]
+line-length = 100
+select = ["F", "E", "W", "I001"]
+
+[tool.mypy]
+check_untyped_defs = true
+exclude = [
+    '\.git',
+    '\.mypy_cache',
+    '\.tox',
+    '\.vscode',
+    '_skbuild',
+    'build',
+    'dist',
+    'venv'
+]
+namespace_packages = true
+no_implicit_optional = true
+plugins = ['numpy.typing.mypy_plugin']
+strict_optional = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_ignores = true
+
+    [[tool.mypy.overrides]]
+    ignore_missing_imports = true
+    module = ['pymeshlab', 'pytest_cases']
