@@ -19,7 +19,7 @@ classifiers = [
 dependencies = [
     "numpy>=1.20"
 ]
-description = "Finite element analysis in structworks module"
+description = "Mesh curvature in Numpy"
 name = "pycurvature"
 readme = "README.md"
 requires-python = ">=3.7"
